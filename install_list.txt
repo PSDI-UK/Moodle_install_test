@@ -1,0 +1,78 @@
+    1  sudo add-apt-repository ppa:ondrej/php # Press enter when prompted.
+    2  sudo apt install php8.3 php8.3-cli php8.3-{bz2,curl,mbstring,intl}
+    3  sudo apt install php8.3-fpm
+    4  sudo a2enconf php8.3-fpm
+    5  # When upgrading from an older PHP version:
+    6  sudo a2disconf php8.2-fpm
+    7  sudo a2enconf php8.3-fpm
+    8  sudo apt purge php8.2*
+    9  php -v
+   10  sudo systemctl restart apache2
+   11  php -v
+   12  PROTOCOL="http://";
+   13  $WEBSITE_ADDRESS="127.0.0.1"
+   14  $WEBSITE_ADDRESS="127.0.0.1";
+   15  set WEBSITE_ADDRESS="127.0.0.1";
+   16  sudo apt-get update && sudo apt upgrade -y 
+   17  sudo apt-get -y install apache2 php libapache2-mod-php php-mysql graphviz aspell git clamav php-pspell php-curl php-gd php-intl ghostscript php-xml php-xmlrpc php-ldap php-zip php-soap php-mbstring unzip mariadb-server mariadb-client certbot python3-certbot-apache ufw nano
+   18  php -v
+   19  cd /var/www/html
+   20  sudo git clone https://github.com/moodle/moodle.git 
+   21  cd moodle
+   22  sudo git checkout origin/MOODLE_404_STABLE
+   23  sudo git config pull.ff only
+   24  sudo mkdir -p /var/www/moodledata
+   25  sudo chown -R www-data:www-data /var/www/moodledata
+   26  sudo find /var/www/moodledata -type d -exec chmod 700 {} \; 
+   27  sudo find /var/www/moodledata -type f -exec chmod 600 {} \;
+   28  sudo chmod -R 777 /var/www/html/moodle 
+   29  sudo sed -i 's/.*max_input_vars =.*/max_input_vars = 5000/' /etc/php/8.3/apache2/php.ini
+   30  sudo sed -i 's/.*max_input_vars =.*/max_input_vars = 5000/' /etc/php/8.3/cli/php.ini
+   31  echo "* * * * * www-data /var/www/moodle/admin/cli/cron.php >/dev/null" | sudo tee -a /etc/crontab
+   32  sudo sed -i '/ServerName/c\    ServerName $WEBSITE_ADDRESS' /etc/apache2/sites-available/000-default.conf
+   33  sudo sed -i '/ServerAlias/c\    ServerAlias www.$WEBSITE_ADDRESS' /etc/apache2/sites-available/000-default.conf
+   34  sudo certbot --apache
+   35  sudo systemctl reload apache2
+   36  PROTOCOL="https://";
+   37  MYSQL_MOODLEUSER_PASSWORD=$(openssl rand -base64 6)
+   38  sudo mysql -e "CREATE DATABASE moodle DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+   39  sudo mysql -e "CREATE USER 'moodleuser'@'localhost' IDENTIFIED BY '$MYSQL_MOODLEUSER_PASSWORD';"
+   40  sudo mysql -e "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, CREATE TEMPORARY TABLES, DROP, INDEX, ALTER ON moodle.* TO 'moodleuser'@'localhost';"
+   41  echo "Your Moodle user password is $MYSQL_MOODLEUSER_PASSWORD. Write this down as you will need it in a web browser install"
+   42  ls
+   43  nano config.php 
+   44  nano config-dist.php 
+   45  cp config-dist.php config.php
+   46  history > install_steps.txt
+   47  ls
+   48  nano install_steps.txt 
+   49  git status
+   50  ls
+   51  cd ..
+   52  ls
+   53  cd ..
+   54  ls
+   55  cd ..
+   56  ls
+   57  cd www
+   58  ls
+   59  cd hmtl
+   60  cd html
+   61  ;s
+   62  ls
+   63  ls moodle
+   64  git status
+   65  history
+   66  git status
+   67  cd ..
+   68  ls
+   69  cd ..
+   70  ls
+   71  cd
+   72  ls
+   73  cd Downloads/
+   74  ls
+   75  cd Moodle_install_test/
+   76  ls
+   77  ls -l
+   78  history > install_list.txt
